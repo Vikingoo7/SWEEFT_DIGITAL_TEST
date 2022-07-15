@@ -1,0 +1,19 @@
+CREATE DATABASE School;
+
+CREATE TABLE student(_id INTEGER PRIMARY KEY, firstname TEXT NOT NULL, lastname TEXT NOT NULL, gender TEXT NOT NULL, subject INTEGER);
+CREATE TABLE teacher(_id INTEGER PRIMARY KEY, firstname TEXT NOT NULL, lastname TEXT NOT NULL, gender TEXT NOT NULL, subject INTEGER);
+CREATE TABLE teacher_has_student(teacher_id INTEGER, student_id INTEGER);
+
+
+SELECT *
+FROM teacher
+INNER JOIN teacher_has_student ON (teacher_has_student.teacher_id = teacher.id)
+INNER JOIN student ON (student.id = teacher_has_student.student_id)
+WHERE student.firstname = 'George';
+
+ 
+
+
+
+
+
